@@ -82,5 +82,34 @@ public class RangeConstrainTest {
     			exampleRange.constrain(25.03), .000000001d);
     }
     
+    /**
+     * Tests the constrain method where the upper and lower bounds of the range are equal, with an input
+     * just below the range, which should return the value of the range
+     */
+    @Test
+    public void inputBelowSingleValueRangeShouldEqualRange() {
+    	assertEquals("The value within the range (-20.5, -20.5) that is closest to -21.1 should be -20.5", -20.5, 
+    			exampleSingleValueRange.constrain(-21.1), .000000001d);
+    }
+    
+    /**
+     * Tests the constrain method where the upper and lower bounds of the range are equal, with an input
+     * equal to the range, which should return the value of the range
+     */
+    @Test
+    public void inputEqualsSingleValueRangeShouldEqualRange() {
+    	assertEquals("The value within the range (-20.5, -20.5) that is closest to -20.5 should be -20.5", -20.5, 
+    			exampleSingleValueRange.constrain(-20.5), .000000001d);
+    }
+    
+    /**
+     * Tests the constrain method where the upper and lower bounds of the range are equal, with an input
+     * above the range, which should return the value of the range
+     */
+    @Test
+    public void inputAboveSingleValueRangeShouldEqualRange() {
+    	assertEquals("The value within the range (-20.5, -20.5) that is closest to -19.9 should be -20.5", -20.5, 
+    			exampleSingleValueRange.constrain(-19.9), .000000001d);
+    }
     
 }
